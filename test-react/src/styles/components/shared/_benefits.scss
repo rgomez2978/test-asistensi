@@ -1,0 +1,93 @@
+.container_benefits {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background: $tertiary-bg;
+    margin-bottom: 3rem;
+    overflow-x: hidden;
+
+    &__content {
+        width: 100%;
+        @include padding-x(1rem);
+
+        .item-left {
+            flex-direction: row-reverse;
+        }
+
+        .item-right {
+            flex-direction: row;
+        }
+
+        &__item {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-items: center;
+            overflow: hidden;
+            @include margin-y(1rem);
+
+            &__img {
+                display: flex;
+                @include content-center;
+                width: 40rem;
+
+                img {
+                    // height: 25rem;
+                }
+            }
+
+            &__text {
+                flex-direction: column;
+                text-align: center;
+                font-weight: 500;
+                // width: auto;
+                @include flex(100%);
+                @include padding-x(2rem);
+                @include padding-y(2rem);
+
+                h2 {
+                    padding: 0;
+                    margin: 0;
+                    padding-bottom: 0.5rem;
+                    @include text-title-small($tertiary-text);
+                }
+
+                p {
+                    padding: 0;
+                    margin: 0;
+                    padding-bottom: 2rem;
+                    @include text-paragraph-normal($primary-text);
+                }
+
+                button {
+                    // width: auto;
+                    transform: scale(1);
+                    transition: all 0.3s ease-out;
+                    @include btn-normal(white);
+                    @include bg-2-gradient-diagonal(rgba(101, 122, 229, 1), rgba(118, 79, 168, 1));
+
+                    &:hover {
+                        transform: scale(1.05);
+                        @include bg-2-gradient-diagonal(rgba(161, 101, 229, 1), rgba(87, 54, 131,1));
+                    }
+                }
+            }
+        }
+    }
+}
+
+@include layout(md) {
+    .container_benefits {
+        &__content {
+            width: 80%;
+
+            &__item {
+                flex-wrap: nowrap;
+
+                &__text {
+                    text-align: left;
+                }
+            }
+        }
+    }
+}

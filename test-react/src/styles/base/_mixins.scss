@@ -1,0 +1,309 @@
+// ##################################
+// TEXT
+// ##################################
+@mixin text-title-big($value) {
+  color: $value;
+  font-size: 2.3rem;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+
+@mixin text-title-normal($value) {
+  color: $value;
+  font-size: 1.8rem;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+@mixin text-title-small($value) {
+  color: $value;
+  font-size: 1.5rem;
+  font-weight: 500;
+  // text-transform: capitalize;
+}
+
+
+
+@mixin text-paragraph-big($value) {
+  color: $value;
+  font-size: 1.2rem;
+  line-height: 1.4rem;
+  font-weight: 300;
+}
+
+@mixin text-paragraph-normal($value) {
+  color: $value;
+  font-size: 0.9rem;
+  line-height: 1.4rem;
+  font-weight: 300;
+}
+
+@mixin text-paragraph-tiny($value) {
+  color: $value;
+  font-size: 0.8rem;
+  line-height: 1.1rem;
+  font-weight: 400;
+}
+
+
+// ##################################
+// LINKS
+// ##################################
+@mixin link-title($value) {
+  color: $value !important;
+  font-size: 0.8rem;
+  line-height: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+@mixin link-subtitle($value) {
+  color: $value !important;
+  font-size: 0.65rem;
+  line-height: 0.8rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  text-decoration: none !important;
+  cursor: pointer;
+}
+
+@mixin link($value) {
+  color: $value !important;
+  font-size: 0.8rem;
+  line-height: 0.8rem;
+  font-weight: 400;
+  text-transform: capitalize;
+  text-decoration: none !important;
+  cursor: pointer;
+}
+
+@mixin link-uppercase($value) {
+  color: $value !important;
+  font-size: 0.8rem;
+  line-height: 0.8rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  text-decoration: none !important;
+  cursor: pointer;
+
+}
+
+// ##################################
+// LIST
+// ##################################
+@mixin reset-list {
+  margin: 0;
+  padding: 0;
+  list-style: none !important;
+}
+
+@mixin li-base {
+  color: rgb(103, 103, 103);
+  text-decoration: none;
+  line-height: 0.5rem;
+}
+
+
+
+// ##################################
+// BUTTONS
+// ##################################
+@mixin btn-big($text, $bg) {
+  color: $text;
+  background-color: $bg;
+  border: none;
+  border-radius: 0.25rem;
+  padding: 0.6rem 1.6rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: capitalize;
+  cursor: pointer;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+@mixin btn-normal($text) {
+  color: $text;
+  border: none;
+  border-radius: 0.25rem;
+  padding: 0.6rem 1.6rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: capitalize;
+  cursor: pointer;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+@mixin btn-tiny($text) {
+  color: $text;
+  border: none;
+  border: 2px;
+  border-top-right-radius: 0.3rem;
+  border-bottom-right-radius: 0.3rem;
+  padding: 0.3rem 0.4rem;
+  font-weight: 600;
+  text-transform: capitalize;
+  cursor: pointer;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+
+// ##################################
+// CARDS
+// ##################################
+@mixin card-tdc($color1, $color2) {
+  @include bg-2-gradient-diagonal($color1, $color2);
+}
+
+
+// ##################################
+// POSITION
+// ##################################
+@mixin margin-x($value_x) {
+  margin-left: $value_x;
+  margin-right: $value_x;
+}
+
+@mixin margin-y($value_y) {
+  margin-top: $value_y;
+  margin-bottom: $value_y;
+}
+
+@mixin padding-x($value_x) {
+  padding-left: $value_x;
+  padding-right: $value_x;
+}
+
+@mixin padding-y($value_y) {
+  padding-top: $value_y;
+  padding-bottom: $value_y;
+}
+
+@mixin content-center {
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin content-start {
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+@mixin content-end {
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+@mixin content-around {
+  align-items: center;
+  justify-content: space-around;
+}
+
+@mixin content-between {
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin content-top-between {
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+
+// ##################################
+// BACKGROUNDS
+// ##################################
+@mixin bg-image-cover($url) {
+  background-image: url($url);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+@mixin bg-image-contain($url) {
+  background-image: url($url);
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+@mixin bg-image-auto($url) {
+  background-image: url($url);
+  background-position: center;
+  background-size: auto;
+  background-repeat: no-repeat;
+}
+
+
+// ##################################
+// BACKGROUNDS GRADIENTS
+// ##################################
+@mixin bg-3-gradient-right($color1, $color2, $color3) {
+  background: $color1;
+  background: linear-gradient(92deg, $color1 30%, $color2 50%, $color3 100%);
+}
+
+@mixin bg-2-gradient-right($color1, $color2) {
+  background: $color1;
+  background: -webkit-linear-gradient(to right, $color1, $color2);
+  background: linear-gradient(to right, $color1, $color2);
+}
+
+@mixin bg-2-gradient-diagonal($color1, $color2) {
+  background: $color1;
+  background: linear-gradient(120deg, $color1 10%, $color2 100%);
+}
+
+@mixin bg-2-gradient-bottom($color1, $color2) {
+  background: $color1;
+  background: -webkit-linear-gradient(to bottom, $color1, $color2);
+  background: linear-gradient(to bottom, $color1, $color2);
+}
+
+
+// ##################################
+// FLEX
+// ##################################
+@mixin flex($percent) {
+  flex: 1 1 $percent;
+}
+
+
+// ##################################
+// MEDIA QUERY - LAYOUT
+// ##################################
+@mixin layout($size) {
+  @if $size==sm {
+    @media (max-width: 639px) {
+      @content;
+    }
+  }
+
+  @else if $size==md {
+    @media (min-width: 767px) {
+      @content;
+    }
+  }
+
+  @else if $size==lg {
+    @media (min-width: 1023px) {
+      @content;
+    }
+  }
+
+  @else if $size==xl {
+    @media (min-width: 1279px) {
+      @content;
+    }
+  }
+
+  @else if $size==2xl {
+    @media (min-width: 1535px) {
+      @content;
+    }
+  }
+}

@@ -1,0 +1,269 @@
+.container_list {
+  display: flex;
+  flex-direction: column;
+  @include padding-x(2rem);
+  @include content-center;
+
+  .container_user {
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    // border: 1px solid red;
+    padding-left: 0.1rem;
+    padding-bottom: 2rem;
+
+    .input-user {
+      @include margin-x(0.5rem);
+
+      input {
+        width: 100%;
+        font-size: 0.8rem;
+        line-height: 1rem;
+      }
+    }
+  }
+
+  > table {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    > thead {
+      display: flex;
+      flex-direction: column;
+
+      > tr {
+        display: flex;
+        flex-direction: row;
+        color: $text-white;
+        background-color: $secundary-bg;
+        text-transform: uppercase;
+        font-size: 0.8rem;
+        line-height: 1rem;
+        width: 100%;
+
+        th {
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          padding-left: 1rem;
+          @include padding-y(0.8rem);
+
+          &:nth-child(1) {
+            display: flex;
+            justify-content: center;
+            width: 10%;
+            padding-left: 0rem;
+          }
+
+          &:nth-child(2) {
+            display: flex;
+            width: 32%;
+          }
+
+          &:nth-child(3) {
+            display: flex;
+            width: 32%;
+          }
+
+          &:nth-child(4) {
+            display: none;
+            width: 20%;
+          }
+
+          &:nth-child(5) {
+            display: none;
+            width: 20%;
+          }
+
+          &:nth-child(6) {
+            justify-content: center;
+            width: 20%;
+            padding-left: 0rem;
+          }
+        }
+      }
+    }
+
+    > tbody {
+      display: flex;
+      flex-direction: column;
+
+      > tr {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        font-size: 0.9rem;
+        color: $primary-text;
+        background-color: white;
+        border-bottom: 1px solid $quartary-bg;
+        text-transform: lowercase;
+
+        &:hover {
+          background-color: $tertiary-bg;
+        }
+
+        td {
+          display: flex;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          padding-left: 1rem;
+          @include padding-y(0.5rem);
+
+          &:nth-child(1) {
+            justify-content: center;
+            width: 10%;
+            padding-left: 0rem;
+          }
+
+          &:nth-child(2) {
+            width: 32%;
+          }
+
+          &:nth-child(3) {
+            width: 32%;
+          }
+
+          &:nth-child(4) {
+            display: none;
+            width: 20%;
+          }
+
+          &:nth-child(5) {
+            display: none;
+            width: 20%;
+          }
+
+          &:nth-child(6) {
+            justify-content: center;
+            width: 20%;
+            padding-left: 0rem;
+          }
+        }
+      }
+    }
+
+    .icons {
+      display: flex;
+      flex-direction: row;
+      @include content-center;
+
+      i {
+        @include margin-x(0.4rem);
+        font-size: 0.9rem;
+
+        &:hover {
+          cursor: pointer;
+          color: $tertiary-text;
+        }
+      }
+    }
+
+    // Resolucion MD
+    @include layout(md) {
+      thead > tr > th {
+        &:nth-child(1) {
+          width: 8%;
+        }
+
+        &:nth-child(2) {
+          width: 20%;
+        }
+
+        &:nth-child(3) {
+          width: 25%;
+        }
+
+        &:nth-child(4) {
+          display: flex;
+          width: 26%;
+        }
+
+        &:nth-child(5) {
+          display: none;
+        }
+      }
+
+      tbody > tr > td {
+        &:nth-child(1) {
+          width: 8%;
+        }
+
+        &:nth-child(2) {
+          width: 20%;
+        }
+
+        &:nth-child(3) {
+          width: 25%;
+        }
+
+        &:nth-child(4) {
+          display: flex;
+          width: 26%;
+        }
+
+        &:nth-child(4) {
+          display: flex;
+        }
+
+        &:nth-child(5) {
+          display: none;
+        }
+      }
+    }
+
+    // Resolucion LG
+    @include layout(lg) {
+      thead > tr > th {
+        &:nth-child(4),
+        &:nth-child(5) {
+          display: flex;
+        }
+      }
+
+      tbody > tr > td {
+        &:nth-child(4),
+        &:nth-child(5) {
+          display: flex;
+        }
+      }
+    }
+  }
+
+  // Resolucion MD
+  @include layout(md) {
+    .container_user .input-user {
+      // &:nth-child(1) {
+      //     width: 8%;
+      // }
+
+      // &:nth-child(2) {
+      //     width: 20%;
+      // }
+
+      // &:nth-child(3) {
+      //     width: 25%;
+      // }
+
+      // &:nth-child(4) {
+      //     display: flex;
+      //     width: 26%;
+      // }
+
+      // &:nth-child(5) {
+      //     display: none;
+      // }
+    }
+  }
+
+  // Resolucion LG
+  @include layout(lg) {
+    .container_user .input-user {
+      // &:nth-child(4),
+      // &:nth-child(5) {
+      //     display: flex;
+      // }
+    }
+  }
+}

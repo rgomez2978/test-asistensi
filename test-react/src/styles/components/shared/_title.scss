@@ -1,0 +1,40 @@
+.container_title {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    z-index: 10;
+    @include content-center;
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        @include content-center;
+
+        h1 {
+            @include text-title-normal($tertiary-text);
+        }
+
+        p {
+            text-align: center;
+            margin-top: -0.8rem;
+            @include text-paragraph-normal($primary-text);
+        }
+    }
+}
+
+@include layout(md) {
+    .container_title {
+        &__content {
+            width: 70%;
+        }
+    }
+}
+
+@include layout(lg) {
+    .container_title {
+        &__content {
+            width: 50%;
+        }
+    }
+}

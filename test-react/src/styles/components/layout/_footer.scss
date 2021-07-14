@@ -1,0 +1,195 @@
+section {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    width: 100%;
+    z-index: 10;
+    @include margin-y(0.5rem);
+    @include content-between;
+
+    .footer_container {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        height: auto;
+        @include margin-y(0.5rem);
+    }
+
+    .level1 {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 90%;
+        @include content-top-between;
+
+        &__subContainer {
+            @include content-start;
+            @include margin-y(0.2rem);
+
+            .subContainer_title {
+                @include link-title($primary-text);
+            }
+
+            >ul {
+                display: flex;
+                flex-direction: column;
+                @include content-start;
+                @include reset-list;
+
+                >li {
+                    text-transform: capitalize;
+                    @include li-base;
+                    @include margin-y(0.3rem);
+
+                    .link {
+                        @include link-subtitle($primary-text);
+
+                        &:hover {
+                            text-decoration: underline !important;
+                        }
+                    }
+                }
+
+                .inputForm {
+
+                    >form {
+                        display: flex;
+
+                        input {
+                            padding: 0.5rem 0.5rem;
+                            color: $primary-text;
+                            border-radius: 2px;
+                            border-top: 2px;
+                            border-bottom: 2px;
+                            border-left: 2px;
+                            border-right: 0px;
+                            background: white;
+                            border-style: solid;
+                            border-color: 4primary-text !important;
+                            outline: none;
+                            width: 60%;
+                        }
+
+                        button {
+                            transition: all 0.3s ease-out;
+                            @include btn-tiny(white);
+                            @include bg-2-gradient-diagonal(rgba(101, 122, 229, 1), rgba(118, 79, 168, 1));
+
+                            i {
+                                font-size: 1.5rem;
+                            }
+
+                            &:hover {
+                                @include bg-2-gradient-diagonal(rgba(161, 101, 229, 1), rgba(87, 54, 131,1));
+                            }
+                        }
+
+                    }
+
+                }
+            }
+        }
+    }
+
+    .level2 {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        @include content-between;
+
+        &__logo {
+            a {
+                text-decoration: none;
+
+                i {
+                    font-size: 4rem;
+                    color: $primary-text;
+                }
+            }
+        }
+
+        &__menu {
+            display: flex;
+            flex-direction: row;
+            @include content-start;
+
+            ul {
+                @include reset-list;
+
+                >li {
+                    @include margin-x(0.5rem);
+                    @include link-uppercase($primary-text);
+
+                    &:hover {
+                        color: $tertiary-text !important;
+                        transition: all 0.2s ease-out;
+                    }
+                }
+            }
+        }
+
+        &__socials {
+            display: flex;
+            flex-direction: row;
+
+            ul {
+                @include reset-list;
+
+                >li {
+                    @include margin-x(0.3rem);
+                    cursor: pointer;
+
+                    i {
+                        color: $primary-text;
+                        font-size: 1rem;
+
+                        &:hover {
+                            color: $tertiary-text;
+                            transition: all 0.2s ease-out;
+                        }
+                    }
+
+                }
+            }
+
+
+        }
+    }
+
+}
+
+@include layout(md) {
+    section {
+        .level1 {
+            width: 80% !important;
+            flex-wrap: wrap;
+
+        }
+
+        .level2 {
+            &__menu {
+                ul {
+                    >li {
+                        @include margin-x(1.3rem);
+                    }
+                }
+            }
+        }
+    }
+}
+
+@include layout(lg) {
+    section {
+        .level1 {
+            width: 60% !important;
+        }
+    }
+}
+
+@include layout(xl) {
+    section {
+        .level1 {
+            width: 50% !important;
+        }
+    }
+}

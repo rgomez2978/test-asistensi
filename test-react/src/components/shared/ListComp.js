@@ -14,8 +14,6 @@ export const ListComp = ({ data }) => {
      * -------------------------------------------------------
      */
     const addUser = async (id, username, name, email, phone) => {
-
-
         await fetch("https://jsonplaceholder.typicode.com/users", {
             method: "POST",
             body: JSON.stringify({
@@ -129,7 +127,6 @@ export const ListComp = ({ data }) => {
                     <tbody>
                         {list.map(user => {
                             return (
-                                // <ListItems {...user} updateUser={updateUser} deleteUser={deleteUser} />
                                 <ListItems key={user.id} {...user} updateUser={updateUser} deleteUser={deleteUser} />
                             );
                         })}

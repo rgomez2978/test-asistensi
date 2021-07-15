@@ -16,6 +16,15 @@ export const ListAddItem = ({ addUser }) => {
 
     ;
 
+
+
+    /**
+     * -------------------------------------------------------
+     * @summary handleSubmit
+     * @description Valida datos para enviar formulario
+     * al guardar
+     * -------------------------------------------------------
+     */
     const handleSubmit = (ev) => {
         let count = 0;
         ev.preventDefault();

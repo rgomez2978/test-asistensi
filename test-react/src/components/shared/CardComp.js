@@ -14,7 +14,6 @@ export const CardComp = ({ data, title }) => {
                 {
                     miData.map((item) => {
                         return (
-                            // className={`container_feature__item ${item.position === 'left' ? 'item-left' : 'item-right'}`}
                             <div key={item.id} className={`card_container__content__item ${item.cName}`}>
                                 <div>
                                     <div className="card_container__content__item__icon">

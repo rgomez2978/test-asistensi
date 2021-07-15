@@ -20,5 +20,6 @@ export { CardComp } from './shared/CardComp';
 export { BenefitsComp } from './shared/BenefitsComp';
 export { HeaderComp } from './shared/HeaderComp';
 export { ListComp } from './shared/ListComp';
+export { ListAddItem } from './shared/ListAddItem';
 export { ProductsComp } from './shared/ProductsComp';
 export { TitleComp } from './shared/TitleComp';

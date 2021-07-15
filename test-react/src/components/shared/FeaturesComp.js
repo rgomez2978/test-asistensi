@@ -5,6 +5,7 @@ import { TitleComp } from "../index";
 export const FeaturesComp = ({ data, title }) => {
     const miTitle = title.filter(array => array);
     const miData = data.filter(array => array);
+
     return (
         <section className="container_features">
             <TitleComp data={miTitle} />

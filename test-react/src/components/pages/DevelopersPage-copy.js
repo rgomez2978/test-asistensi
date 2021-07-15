@@ -6,7 +6,7 @@ export const DevelopersPage = () => {
 
     const [usuarios, setUsuarios] = useState([]);
     const [inputValue, setInputValue] = useState('');
-    const { data: users, loading } = useFetchUsers(usuarios);
+    const { data: users } = useFetchUsers(usuarios);
 
     /**
      * -------------------------------------------------------

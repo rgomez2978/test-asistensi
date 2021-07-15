@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FeaturesComp, BenefitsComp, CardComp, HeaderComp, NavbarComp } from "../index";
+import { FeaturesComp, BenefitsComp, CardComp } from "../index";
 
 
 export const HomePage = () => {

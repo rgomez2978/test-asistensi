@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types'
-import { NavbarComp, CardComp, TitleComp } from '../index';
+import { CardComp } from '../index';
 
 export const HeaderComp = ({ type }) => {
-    // const miData = data.filter(array => array);
     const [cards] = useState([
         {
             id: 1,
@@ -76,5 +75,4 @@ HeaderComp.propTypes = {
     type: PropTypes.string.isRequired
 }
 
-// export default HeaderComp
 

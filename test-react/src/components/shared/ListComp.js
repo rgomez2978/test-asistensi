@@ -1,58 +1,120 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types'
-import { useForm } from '../../hooks/useForm';
-import { usePostUsers } from '../../hooks/usePostUsers';
+import { ListAddItem } from './ListAddItem';
+import { ListItems } from './ListItems';
 
 export const ListComp = ({ data }) => {
     const miData = data.filter(array => array);
+    const [list, setList] = useState(miData);
 
-    // const [usuariosList, setUsuariosList] = useState([]);
+    /**
+     * -------------------------------------------------------
+     * @summary addUser
+     * @description Agrega nuevo usuario via api rest metodo POST
+     * -------------------------------------------------------
+     */
+    const addUser = async (id, username, name, email, phone) => {
 
-    const [formValues, handleInputChange] = useForm({});
+
+        await fetch("https://jsonplaceholder.typicode.com/users", {
+            method: "POST",
+            body: JSON.stringify({
+                id: id,
+                username: username,
+                name: name,
+                email: email,
+                phone: phone
+            }),
+            headers: {
+                "Content-type": "application/json; charset=UTF-8"
+            }
+        })
+            .then(resp => {
+                if (resp.status !== 201) {
+                    return;
+                } else {
+                    return resp.json();
+                }
+            })
+            .then(data => {
+                setList(list => [...list, data]);
+            })
+            .catch(error => console.log(error));
+    };
+
+    /**
+     * -------------------------------------------------------
+     * @summary updateUser
+     * @description Actualiza usuario via api rest metodo PUT
+     * -------------------------------------------------------
+     */
+    const updateUser = async (id, username, name, email, phone) => {
+        await fetch(`https://jsonplaceholder.typicode.com/users/${id}`, {
+            method: "PUT",
+            body: JSON.stringify({
+                username: username,
+                name: name,
+                email: email,
+                phone: phone
+            }),
+            headers: {
+                "Content-type": "application/json; charset=UTF-8"
+            }
+        })
+            .then(resp => {
+                if (resp.status !== 200) {
+                    return;
+                } else {
+                    return resp.json();
+                }
+            })
+            .then(data => {
+                const upUsers = list.map(user => {
+                    if (user.id === id) {
+                        user.username = username;
+                        user.name = name;
+                        user.email = email;
+                        user.phone = phone;
+                    }
+                    return user;
+                });
+                setList(list => [...list]);
+
+            })
+            .catch(error => console.log(error));
+    };
 
 
-    const handleSubmit = (ev) => {
-        ev.preventDefault();
-        console.log('target :>> ', ev.target.name.value);
-        usePostUsers(ev.target.name.value, ev.target.email.value);
-        // ev.target.preventDefault();
-        // onAdd(ev.target.name.value, ev.target.email.value);
-        // ev.target.username.value = "";
-        // ev.target.name.value = "";
-        // ev.target.email.value = "";
-        // ev.target.phone.value = "";
+    /**
+     * -------------------------------------------------------
+     * @summary deleteUser
+     * @description Elimina usuario via api rest metodo DELETE
+     * -------------------------------------------------------
+     */
+    const deleteUser = async (id) => {
+        await fetch(`https://jsonplaceholder.typicode.com/users/${id}`, {
+            method: "DELETE"
+        })
+            .then(resp => {
+                if (resp.status !== 200) {
+                    return;
+                } else {
+                    setList(
+                        list.filter(user => {
+                            return user.id !== id;
+                        })
+                    );
+                }
+            })
+            .catch(error => console.log(error));
     };
 
 
 
-    // const { username, name, email, phone } = formValues;
-
     return (
         <>
             <div className="container_list">
-                <form onSubmit={handleSubmit}>
-                    <div className="container_user">
-                        <div className="input-user">
-                            {/* <input type="text" placeholder="USER" /> */}
-                        </div>
-                        <div className="input-user">
-                            <input type="text" name="username" placeholder="Username" onChange={handleInputChange} />
-                        </div>
-                        <div className="input-user">
-                            <input type="text" name="name" placeholder="Complete Name" onChange={handleInputChange} />
-                        </div>
-                        <div className="input-user">
-                            <input type="text" name="email" placeholder="Email" onChange={handleInputChange} />
-                        </div>
-                        <div className="input-user">
-                            <input type="text" name="phone" placeholder="Phone" onChange={handleInputChange} />
-                        </div>
-                        <div className="input-user">
-                            <button onSubmit={handleSubmit} >agregar</button>
-                        </div>
-                    </div>
-                </form>
-
+                <ListAddItem addUser={addUser} />
                 <table className="table">
                     <thead>
                         <tr>
@@ -65,28 +127,10 @@ export const ListComp = ({ data }) => {
                         </tr>
                     </thead>
                     <tbody>
-                        {miData.map((user) => {
+                        {list.map(user => {
                             return (
-                                <tr key={user.id}>
-                                    <td>{user.id}</td>
-                                    <td>{user.user}</td>
-                                    <td>{user.name}</td>
-                                    <td>{user.email}</td>
-                                    <td>{user.phone}</td>
-                                    <td className="icons">
-                                        <div className="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
-                                            <i className="icofont-search-job"></i>
-                                        </div>
-
-                                        <div className="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
-                                            <i className="icofont-ui-edit"></i>
-                                        </div>
-
-                                        <div className="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
-                                            <i className="icofont-trash"></i>
-                                        </div>
-                                    </td>
-                                </tr>
+                                // <ListItems {...user} updateUser={updateUser} deleteUser={deleteUser} />
+                                <ListItems key={user.id} {...user} updateUser={updateUser} deleteUser={deleteUser} />
                             );
                         })}
                     </tbody>

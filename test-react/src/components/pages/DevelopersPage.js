@@ -1,16 +1,12 @@
-import React, { useState } from 'react';
-import { useFetchUsers } from '../../hooks/useFetchUsers';
+import React from 'react';
 import { ListComp } from '../index';
+import { useGetFetch } from '../../hooks/useFetch';
 
 export const DevelopersPage = () => {
-    // Creacion de state usuarios
-    const [usuarios, setUsuarios] = useState([]);
-    // llamada a custom hooks Fetch AP
-    const { data: users, loading } = useFetchUsers(usuarios);
-
+    const { data: usersList } = useGetFetch();
     return (
         <div className="animate__animated animate__fadeIn">
-            <ListComp key={users} data={users} />
+            <ListComp key={usersList} data={usersList} />
         </div>
     )
 }

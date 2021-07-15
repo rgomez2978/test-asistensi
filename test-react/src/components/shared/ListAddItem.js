@@ -22,32 +22,20 @@ export const ListAddItem = ({ addUser }) => {
      * -------------------------------------------------------
      * @summary handleSubmit
      * @description Valida datos para enviar formulario
-     * al guardar
+     * al editar y elimnar
      * -------------------------------------------------------
      */
     const handleSubmit = (ev) => {
-        let count = 0;
         ev.preventDefault();
-        console.log('error :>> ', Object.keys(error).length);
         setError(FormValidate(ev.target));
-
-        if (Object.keys(error).length > 2) {
-            console.log('Ready modificado  formulario vacio');
-            count = count + 1;
-        }
-        else if (Object.keys(error).length > 0 && Object.keys(error).length < 3) {
-            console.log('Formulario Enviado');
-            addUser(
-                ev.target.id.value,
-                ev.target.username.value,
-                ev.target.name.value,
-                ev.target.email.value,
-                ev.target.phone.value
-            );
-            reset();
-        }
-        else {
-        }
+        addUser(
+            ev.target.id.value,
+            ev.target.username.value,
+            ev.target.name.value,
+            ev.target.email.value,
+            ev.target.phone.value
+        );
+        reset();
     };
 
 

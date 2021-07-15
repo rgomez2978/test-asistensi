@@ -12,9 +12,10 @@ export const FormValidate = (input) => {
 
     if (!input.email.value) {
         errors.email = 'Email address is required';
-    } else if (!/\S+@\S+\.\S+/.test(input.email.value)) {
-        errors.email = 'Email address format is invalid (example@domain.com)';
     }
+    // else if (!/\S+@\S+\.\S+/.test(input.email.value)) {
+    //     errors.email = 'Email address format is invalid (example@domain.com)';
+    // }
 
     if (!input.phone.value) {
         errors.phone = 'Phone is required';
